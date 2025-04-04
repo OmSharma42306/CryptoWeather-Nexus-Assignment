@@ -6,7 +6,7 @@ export default function CryptoCurrency(){
     const [coinName,setCoinName] = useState<string>("");
     const [render,setRender] = useState<Boolean>(false);
     const [current_price,setCurrent_price] = useState<string>("");
-    const [price_change_24h,setPrice_change_24h] = useState<strign>("");
+    const [price_change_24h,setPrice_change_24h] = useState<string>("");
     const [market_cap,setMarketCap] = useState<string>("");
 
     async function getCoinData(coinName:string){
