@@ -10,9 +10,7 @@ interface weatherData{
 }
 
 export async function fetchWeatherData(city:string){
-    
-    
-    
+
     const responses = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}&units=metric`);
     
     const data = responses.data;
@@ -36,11 +34,14 @@ export async function fetchWeatherData(city:string){
 
 }
 
-export async function fetchCoinData(coinName:string){
-    
-    const responses = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinName}`);
+export async function fetchCoinData(cryptoName:string){
+    console.log("ccccccc",cryptoName)
+    const responses = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptoName}`);
     const data = responses.data;
+    console.log("he",data)
     let [{current_price,price_change_24h,market_cap}]:any = data.map((e:{current_price:string,price_change_24h:string,market_cap:string})=>{
+       
+        console.log("E Current Price.",e.current_price)
         return{
             current_price:e.current_price,
             price_change_24h:e.price_change_24h,
@@ -48,7 +49,7 @@ export async function fetchCoinData(coinName:string){
         }
     })
 
-    return {current_price,price_change_24h,market_cap};    
+    return {cryptoName,current_price,price_change_24h,market_cap};    
 }
 
 

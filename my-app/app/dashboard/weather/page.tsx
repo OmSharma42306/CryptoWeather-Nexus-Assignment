@@ -30,21 +30,12 @@ export default function Weather() {
       console.log("results",results)
       // store the weather data into an data object
       results.forEach((weatherDetails)=>{
-        // data[city] = {e.humidity,.temperature,conditions,conditionDescription};
-        
-        data[weatherDetails.cityName] = weatherDetails;
-        
+        data[weatherDetails.cityName] = weatherDetails;        
       });
       console.log("f",data);
       setWeatherData(data);
     }
-    fetchForThreeCities()
-    
-    
-    
-    
-    
-
+    fetchForThreeCities()    
   },[])
 
   async function handleSearch(){
@@ -101,7 +92,6 @@ export default function Weather() {
         )}
         </div>
       })}
-
     </div>
   );
 }

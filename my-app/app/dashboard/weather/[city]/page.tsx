@@ -1,13 +1,3 @@
-// "use client"
-// import { useState } from "react";
-// import { fetchWeatherData} from "@/app/lib/api";
-// export default function c() {
-//   const [render,setRender] = useState<Boolean>(false);
-//   const [city,setCity] = useState<string>("");
-//   const [humidity,setHumidity] = useState<string>("");
-//   const [temperature,setTemperature] = useState<string>("");
-//   const [conditions,setConditions] = useState<string>("");
-//   const [conditionDescription,setConditionDescription] = useState<string>("");
 "use client"
 
 import { fetchWeatherData } from "@/app/lib/api";
@@ -33,6 +23,9 @@ export default function CityDetails(){
         { date: "2025-04-01", temperature: 13, humidity: 72, conditions: "Clouds" },
         { date: "2025-04-02", temperature: 15, humidity: 68, conditions: "Clear" },
         { date: "2025-04-03", temperature: 11, humidity: 77, conditions: "Rain" },
+        { date: "2025-04-04", temperature: 15, humidity: 68, conditions: "Clear" },
+        { date: "2025-04-05", temperature: 21, humidity: 67, conditions: "Rain" },
+        
       ];
       
     useEffect(()=>{
