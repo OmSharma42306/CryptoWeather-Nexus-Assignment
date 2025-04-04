@@ -31,7 +31,6 @@ export default function c() {
         render?"Successful data loaded.":"Loading...."
       }
 
-      <h1>KEEEEEEEERTTTTTTTTTTTTTTTTTTTTTTHI</h1>
       <h1>Humidity is : {humidity}</h1>
       <h1>Temperature is : {temperature}</h1>
       <h1>Conditions is : {conditions}-{conditionDescription}</h1>
