@@ -7,14 +7,14 @@ interface weatherData{
     conditions:string;
     conditionDescription:string;
 }
-export async function fetchWeatherData(){
+export async function fetchWeatherData(city:string){
     const cities = ["New York","London","Tokyo"];
-    const city = "London";
-
+    //const city = "London";
+    console.log("City",city)
     const responses = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}&units=metric`);
-    //console.log(responses);
+    
     const data = responses.data;
-    console.log("Data MAIN",data.weather.main)
+    
     const humidity = data.main.humidity;
     const temperature = data.main.temp;
     let [{conditions,conditionDescription}]:weatherData|any= data.weather.map((e:{main:string,description:string})=>{
@@ -26,17 +26,19 @@ export async function fetchWeatherData(){
         }
     })
     
+    // return temperature,humidity,conditions.
     console.log("Temperature",temperature);
     console.log("Humidity:",humidity)
     console.log("Conditions")
     console.log(`${conditions}(${conditionDescription})`)
-    // return temperature,humidity,conditions.
+    
+    return {humidity,temperature,conditions,conditionDescription}
 
 }
 
-export async function fetchCoinData(){
-
-    const responses = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,solana");
+export async function fetchCoinData(coinName:string){
+    
+    const responses = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinName}`);
     const data = responses.data;
     console.log(data);
 }
