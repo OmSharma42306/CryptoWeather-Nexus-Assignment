@@ -11,14 +11,14 @@ interface weatherData{
 
 export async function fetchWeatherData(city:string){
     
-    const cities = ["New York","London","Tokyo"];
+    
     
     const responses = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}&units=metric`);
     
     const data = responses.data;
     const humidity = data.main.humidity;
     const temperature = data.main.temp;
-    
+    const cityName = city;
     let [{conditions,conditionDescription}]:weatherData|any= data.weather.map((e:{main:string,description:string})=>{
         console.log(e.description)
         console.log(e.main)
@@ -31,8 +31,8 @@ export async function fetchWeatherData(city:string){
     
     // return temperature,humidity,conditions.
     
-    
-    return {humidity,temperature,conditions,conditionDescription}
+    console.log("before return",city)
+    return {cityName,humidity,temperature,conditions,conditionDescription}
 
 }
 

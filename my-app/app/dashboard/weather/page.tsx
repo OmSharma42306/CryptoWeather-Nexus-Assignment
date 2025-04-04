@@ -10,18 +10,40 @@ export default function Weather() {
   useEffect(()=>{
     async function fetchForThreeCities(){
       const data:any = {};
-      for(let city of cities){
-        console.log("ccc",city)
-        const {humidity,temperature,conditions,conditionDescription} = await fetchWeatherData(city);
-        data[city] = {humidity,temperature,conditions,conditionDescription};
-        setWeatherData(data);
-      }
+      
+      // sequentially fethching the city weather causing the state to update synchrnously
+      // so we have to fetch it parellely
+      // for(let city of cities){
+      //   console.log("ccc",city)
+      //   const {humidity,temperature,conditions,conditionDescription} = await fetchWeatherData(city);
+      //   data[city] = {humidity,temperature,conditions,conditionDescription};
+      //   setWeatherData(data);
+      // }
+      const weatherPromises = cities.map(async (city:string)=>{
+        const {humidity,temperature,conditions,conditionDescription,cityName} = await fetchWeatherData(city);
+
+        return {cityName,humidity,temperature,conditions,conditionDescription}
+      });
+
+      // wait for all cities weather to be fethced.
+      const results = await Promise.all(weatherPromises);
+      console.log("results",results)
+      // store the weather data into an data object
+      results.forEach((weatherDetails)=>{
+        // data[city] = {e.humidity,.temperature,conditions,conditionDescription};
+        
+        data[weatherDetails.cityName] = weatherDetails;
+        
+      });
+      console.log("f",data);
+      setWeatherData(data);
     }
     fetchForThreeCities()
     
   },[])
   
    // todo add the state into redux store.
+   console.log(weatherData)
     
     
   return (
