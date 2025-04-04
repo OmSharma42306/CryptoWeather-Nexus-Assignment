@@ -1,49 +1,77 @@
+// "use client"
+// import { useState } from "react";
+// import { fetchWeatherData} from "@/app/lib/api";
+// export default function c() {
+//   const [render,setRender] = useState<Boolean>(false);
+//   const [city,setCity] = useState<string>("");
+//   const [humidity,setHumidity] = useState<string>("");
+//   const [temperature,setTemperature] = useState<string>("");
+//   const [conditions,setConditions] = useState<string>("");
+//   const [conditionDescription,setConditionDescription] = useState<string>("");
 "use client"
-import { useState } from "react";
-import { fetchWeatherData} from "@/app/lib/api";
-export default function c() {
-  const [render,setRender] = useState<Boolean>(false);
-  const [city,setCity] = useState<string>("");
-  const [humidity,setHumidity] = useState<string>("");
-  const [temperature,setTemperature] = useState<string>("");
-  const [conditions,setConditions] = useState<string>("");
-  const [conditionDescription,setConditionDescription] = useState<string>("");
 
-  async function fx(city:string){
-    const {humidity,temperature,conditions,conditionDescription}:any  = await fetchWeatherData(city);
-    
-  if(humidity&&temperature&&conditionDescription&&conditions){
-    setHumidity(humidity);
-    setRender(true);
-    setTemperature(temperature)
-    setConditions(conditions);
-    setConditionDescription(conditionDescription)
-    
-    
-  }
-  }
-   // todo add the state into redux store.
-  
-    
-  return (
-    <div>
-      {
-        render?"Successful data loaded.":"Loading...."
-      }
+import { fetchWeatherData } from "@/app/lib/api";
+import { useParams } from "next/navigation"
+import { useEffect, useState } from "react";
 
-      <h1>Humidity is : {humidity}</h1>
-      <h1>Temperature is : {temperature}</h1>
-      <h1>Conditions is : {conditions}-{conditionDescription}</h1>
-      <input type="text" onChange={(e)=>{
-        setCity(e.target.value);
-      }}/>
+interface weatherData{
+humidity:string;
+temperature:string;
+conditions:string;
+conditionDescription:string;
+cityName:string;
+}
+
+export default function CityDetails(){
+    const params = useParams();
+    console.log(params.city)
+    const city = params.city;
+    console.log("Entered City",city)
+    const [weatherData,setWeatherData] = useState<weatherData|any>({});
+    const [loading,setLoading] = useState<Boolean>(true);
+    const historicalData = [
+        { date: "2025-04-01", temperature: 13, humidity: 72, conditions: "Clouds" },
+        { date: "2025-04-02", temperature: 15, humidity: 68, conditions: "Clear" },
+        { date: "2025-04-03", temperature: 11, humidity: 77, conditions: "Rain" },
+      ];
       
-      <button onClick={()=>{
-        fx(city)
-      }}>Fetch</button>
+    useEffect(()=>{
+        if(city){
+            console.log(city);
+            async function fetchCityWeather(city:string){
+                const {humidity,temperature,conditions,conditionDescription,cityName} = await fetchWeatherData(city);
+                console.log(humidity);
+                setWeatherData({humidity,temperature,conditions,conditionDescription,cityName})
+                setLoading(false)
+            }
 
+            fetchCityWeather(city as string)
+
+        }
+    },[])
+
+    console.log(weatherData)
+
+    if(loading){
+        return <div>
+            Loading............
+        </div>
+    }
+    
+    return <div>
+        <h1>City Name : {city}</h1>
+        <p>Humidity :  {weatherData.humidity}</p>
+        <p>Temperature : {weatherData.temperature}</p>
+        <p>Conditions is : {weatherData.conditions}-{weatherData.conditionDescription}</p>
+        <h1>{historicalData.map((e)=>{
+            return <div>
+                <h1>date : {e.date}</h1>
+                <h1>temperature:{e.temperature}</h1>
+                <h1>Humidity : {e.humidity}</h1>
+                <h1>Conditions : {e.conditions}</h1>
+            </div>
+        })}</h1>
     </div>
-  );
 }
 
 
