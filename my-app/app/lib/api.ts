@@ -34,7 +34,7 @@ export async function fetchWeatherData(city:string){
 
 }
 
-export async function fetchCoinData(cryptoName:string){
+export async function fetchCryptoData(cryptoName:string){
     console.log("ccccccc",cryptoName)
     const responses = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptoName}`);
     const data = responses.data;
