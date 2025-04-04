@@ -40,5 +40,15 @@ export async function fetchCoinData(coinName:string){
     
     const responses = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinName}`);
     const data = responses.data;
+    let [{current_price,price_change_24h,market_cap}]:any = data.map((e:{current_price:string,price_change_24h:string,market_cap:string})=>{
+        return{
+            current_price:e.current_price,
+            price_change_24h:e.price_change_24h,
+            market_cap:e.market_cap
+        }
+    })
+
+    return {current_price,price_change_24h,market_cap};
+
     console.log(data);
 }
