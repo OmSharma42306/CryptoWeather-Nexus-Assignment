@@ -144,7 +144,7 @@ export default function Weather() {
               placeholder="Enter city name..."
               value={searchCity}
               onChange={(e) => setSearchCity(e.target.value)}
-              className="flex-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              className="flex-1 rounded-lg border-gray-300 shadow-sm text-black focus:border-blue-500 focus:ring-blue-500"
             />
             <button 
               onClick={handleSearch}

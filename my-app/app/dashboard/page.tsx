@@ -63,19 +63,19 @@
 
 
 "use client"
-import CryptoWebsocket from "@/components/CryptoWebsocket"
+import CryptoWebsocket from '@/CoinCap/CryptoWebsocket'; 
 import { Layout } from 'lucide-react';
 // adding coincap websocket layer for live price changes.
 import Weather from "./weather/page"
 import CryptoCurrency from "./cryptocurrency/page"
 import CryptoNews from "./cryptonews/page"
-import { updateLivePrice } from "@/redux/slices/cryptoSlice";
-import DisplayCoinCap from "@/components/DisplayCoinCap";
+
+import DisplayCoinCap from '@/CoinCap/DisplayCoinCap';
 
 export default function x() {
   return (
     <div>
-      hi
+      
 
       <CryptoWebsocket />
 

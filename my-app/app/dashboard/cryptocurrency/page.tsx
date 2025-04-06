@@ -168,7 +168,7 @@ export default function CryptoCurrency() {
                             type="text"
                             placeholder="Enter cryptocurrency name..."
                             onChange={(e) => setSearchCrypto(e.target.value)}
-                            className="flex-1 rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            className="flex-1 rounded-lg border-gray-300 shadow-sm text-black focus:border-indigo-500 focus:ring-indigo-500"
                         />
                         <button
                             onClick={handleSearch}

@@ -46,7 +46,7 @@
 import { getCryptoRelatedHeadlines } from "@/app/lib/api"
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import CryptoWebsocket from "@/components/CryptoWebsocket";
+
 
 export default function CryptoNews() {
     const [loading, setLoading] = useState<Boolean>(true);
@@ -79,7 +79,7 @@ export default function CryptoNews() {
         <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-3xl font-bold text-gray-900 mb-8">Crypto News</h1>
-                <CryptoWebsocket />
+                
                 
                 <div className="space-y-6">
                     {newsData.map((news, index) => (

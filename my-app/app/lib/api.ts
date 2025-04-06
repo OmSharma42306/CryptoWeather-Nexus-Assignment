@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const WEATHER_API_KEY = '95c4ba18e01976a327f239031b42a31f';
-const NEWS_API_KEY = 'pub_78214f7335dd644ec67e66b285ed7d6ef5158';
+const WEATHER_API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+const NEWS_API_KEY = '';
+
 
 // fetch weather data for three cities
 interface weatherData{
