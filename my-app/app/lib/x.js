@@ -590,33 +590,33 @@
 
 
 
-// const data = {
-//     n:2,
-//     d:2
+// // const data = {
+// //     n:2,
+// //     d:2
+// // }
+
+// // data[city] = data;
+
+
+// cryptodata= {
+//     "bitcoin": {
+//         "current_price": 83996,
+//         "price_change_24h": 1985.54,
+//         "market_cap": 1665064890776,
+//         "cryptoName": "bitcoin"
+//     },
+//     "ethereum": {
+//         "current_price": 1810.97,
+//         "price_change_24h": 26.03,
+//         "market_cap": 218276186199,
+//         "cryptoName": "ethereum"
+//     },
+//     "solana": {
+//         "current_price": 122.62,
+//         "price_change_24h": 7.21,
+//         "market_cap": 62881521154,
+//         "cryptoName": "solana"
+//     }
 // }
 
-// data[city] = data;
-
-
-cryptodata= {
-    "bitcoin": {
-        "current_price": 83996,
-        "price_change_24h": 1985.54,
-        "market_cap": 1665064890776,
-        "cryptoName": "bitcoin"
-    },
-    "ethereum": {
-        "current_price": 1810.97,
-        "price_change_24h": 26.03,
-        "market_cap": 218276186199,
-        "cryptoName": "ethereum"
-    },
-    "solana": {
-        "current_price": 122.62,
-        "price_change_24h": 7.21,
-        "market_cap": 62881521154,
-        "cryptoName": "solana"
-    }
-}
-
-console.log(cryptodata["bitcoin"].current_price)
+// console.log(cryptodata["bitcoin"].current_price)
