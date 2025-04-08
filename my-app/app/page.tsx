@@ -78,7 +78,7 @@ export default function Home() {
 function FeatureCard({ title, description, image }:{title:any, description:any, image:any}) {
   return (
     <div className="bg-slate-800/50 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-200">
-      <Image
+      <img 
         src={image} 
         alt={title}
         className="w-full h-48 object-cover"
