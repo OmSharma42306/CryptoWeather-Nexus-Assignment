@@ -71,8 +71,17 @@ import CryptoCurrency from "./cryptocurrency/page"
 import CryptoNews from "./cryptonews/page"
 
 import DisplayCoinCap from '@/CoinCap/DisplayCoinCap';
+import { useEffect, useState } from 'react';
+
+
+
+
 
 export default function x() {
+  const [time,setTime] = useState("");
+  useEffect(()=>{
+    setTime(new Date().toLocaleString())
+  },[])
   return (
     <div>
       
@@ -89,7 +98,7 @@ export default function x() {
                 <h1 className="ml-3 text-2xl font-bold text-gray-900">Crypto & Weather Dashboard</h1>
               </div>
               <div className="text-sm text-gray-500">
-                Last updated: {new Date().toLocaleString()}
+                Last updated: {time}
               </div>
             </div>
           </div>

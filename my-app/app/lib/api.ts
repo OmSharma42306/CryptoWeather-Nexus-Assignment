@@ -1,8 +1,10 @@
 import axios from "axios";
 
 const WEATHER_API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
-const NEWS_API_KEY = '';
+const NEWS_API_KEY = process.env.NEXT_PUBLIC_NEWS_API_KEY
 
+console.log("KEERTHI KYA",WEATHER_API_KEY)
+console.log("Om",NEWS_API_KEY)
 
 // fetch weather data for three cities
 interface weatherData{
