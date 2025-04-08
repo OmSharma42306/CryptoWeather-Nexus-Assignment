@@ -69,6 +69,10 @@ export default function CryptoWebsocket() {
 
     console.log('📡 WebSocket connected');
 
+    ws.onerror = (e) =>{
+      console.log("Sockets Error!",e)
+    }
+
     return () => {
       ws.close();
     };

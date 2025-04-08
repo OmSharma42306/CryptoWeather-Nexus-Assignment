@@ -73,10 +73,6 @@ import CryptoNews from "./cryptonews/page"
 import DisplayCoinCap from '@/CoinCap/DisplayCoinCap';
 import { useEffect, useState } from 'react';
 
-
-
-
-
 export default function x() {
   const [time,setTime] = useState("");
   useEffect(()=>{

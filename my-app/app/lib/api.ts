@@ -3,8 +3,6 @@ import axios from "axios";
 const WEATHER_API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 const NEWS_API_KEY = process.env.NEXT_PUBLIC_NEWS_API_KEY
 
-console.log("KEERTHI KYA",WEATHER_API_KEY)
-console.log("Om",NEWS_API_KEY)
 
 // fetch weather data for three cities
 interface weatherData{
@@ -20,9 +18,8 @@ export async function fetchWeatherData(city:string){
     const humidity = data.main.humidity;
     const temperature = data.main.temp;
     const cityName = city;
+
     let [{conditions,conditionDescription}]:weatherData|any= data.weather.map((e:{main:string,description:string})=>{
-        console.log(e.description)
-        console.log(e.main)
         return{
             conditions:e.main,
             conditionDescription : e.description
@@ -31,20 +28,15 @@ export async function fetchWeatherData(city:string){
     
     
     // return temperature,humidity,conditions.
-    
-    console.log("before return",city)
     return {cityName,humidity,temperature,conditions,conditionDescription}
 
 }
 
 export async function fetchCryptoData(cryptoName:string){
-    console.log("ccccccc",cryptoName)
     const responses = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptoName}`);
     const data = responses.data;
-    console.log("he",data)
     let [{current_price,price_change_24h,market_cap}]:any = data.map((e:{current_price:string,price_change_24h:string,market_cap:string})=>{
        
-        console.log("E Current Price.",e.current_price)
         return{
             current_price:e.current_price,
             price_change_24h:e.price_change_24h,
@@ -76,8 +68,6 @@ export async function getCryptoRelatedHeadlines(){
             pubDate : e.pubDate
         }
     })
-
-    console.log("newsarray",newsData)
 
     return newsData;
 }
