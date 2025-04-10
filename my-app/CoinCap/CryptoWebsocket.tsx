@@ -12,7 +12,7 @@ export default function CryptoWebsocket() {
     const ws = new WebSocket(`wss://wss.coincap.io/prices?assets=bitcoin,ethereu,monero,litecoin&apiKey=${COINCAP_API_KEY}`);
     ws.onmessage = (msg) => {
       const data = JSON.parse(msg.data);
-
+      console.log("socket-data",data);
       Object.entries(data).forEach(([id, price]) => {
         const numericPrice = Number(price);
         const prev = prevPrices.current[id];
