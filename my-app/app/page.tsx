@@ -1,23 +1,3 @@
-// "use client"
-
-// import { Provider } from "react-redux";
-// import {store } from "../redux/store"
-// import { useRouter } from "next/navigation";
-// export default function Home() {
-//   const router = useRouter();
-//   return (
-//     <Provider store={store}>
-      
-//     <div>
-//         HOME PAGE
-
-//         <button onClick={()=>{
-//           router.push('/dashboard')
-//         }}>Go to Dashboard.</button>
-//     </div>
-//     </Provider>
-//   );
-// }
 "use client"
 import React from 'react';
 import { Bitcoin, Cloud, ArrowRight } from 'lucide-react';

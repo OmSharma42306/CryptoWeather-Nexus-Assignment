@@ -1,35 +1,3 @@
-// my logic
-// import { useEffect } from "react";
-// import { useDispatch } from "react-redux"
-// import { updateLivePrice } from "@/redux/slices/cryptoSlice";
-
-// export default function CryptoWebsocket(){
-//     const dispatch = useDispatch();
-
-//     useEffect(()=>{
-//         const ws = new WebSocket('wss://ws.coincap.io/prices?assets=bitcoin,ethereum,monero,litecoin')
-
-//         ws.onmessage = (msg) =>{
-//             const data = JSON.parse(msg.data);
-//             console.log("live data",data);
-//             Object.entries(data).forEach(([id, price]) => {
-//                 dispatch(updateLivePrice({ id, price: Number(price) }));
-//               });
-//         }
-
-//         console.log("i ran")
-
-//         return ()=>{
-//             ws.close();
-//         }
-
-//     },[])
-//     return null
-
-    
-// }
-
-// added some extra stuff..
 "use client"
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
@@ -41,7 +9,6 @@ export default function CryptoWebsocket() {
   const prevPrices = useRef<Record<string, number>>({});
 
   useEffect(() => {
-    //const ws = new WebSocket('wss://ws.coincap.io/prices?assets=bitcoin,ethereum,monero,litecoin');
     const ws = new WebSocket(`wss://wss.coincap.io/prices?assets=bitcoin,ethereu,monero,litecoin&apiKey=${COINCAP_API_KEY}`);
     ws.onmessage = (msg) => {
       const data = JSON.parse(msg.data);
