@@ -2,7 +2,7 @@
 import { fetchWeatherData } from "@/app/api/api";
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react";
-
+import Link from "next/link";
 interface weatherData {
   humidity: string;
   temperature: string;
@@ -49,6 +49,12 @@ export default function CityDetails() {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
+      <Link
+  href="/dashboard"
+  className="inline-block mb-4 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+>
+  ← Back to Dashboard
+</Link>
         {/* Current Weather Card */}
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
           <div className="flex items-center justify-between mb-6">

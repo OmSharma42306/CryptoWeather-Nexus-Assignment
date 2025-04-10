@@ -44,6 +44,12 @@ export default function CryptoCurrency() {
                 <Link href="/dashboard/cryptocurrency" className="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors"/>
             </div>
 
+            <Link
+  href="/dashboard"
+  className="inline-block mb-4 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+>
+  ← Back to Dashboard
+</Link>
             {cryptoData.map((crypto) => {
                 const priceChange = parseFloat(crypto.price_change_24h);
                 const isPositive = priceChange >= 0;

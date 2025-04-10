@@ -7,6 +7,7 @@ import CryptoNews from "./cryptonews/page"
 
 import DisplayCoinCap from '@/CoinCap/DisplayCoinCap';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function Dashboard() {
   const [time,setTime] = useState("");
@@ -28,6 +29,13 @@ export default function Dashboard() {
                 <Layout className="h-8 w-8 text-indigo-600" />
                 <h1 className="ml-3 text-2xl font-bold text-gray-900">Crypto & Weather Dashboard</h1>
               </div>
+              <h1 className='text-2xl text-gray-900 font-bold '>
+              <Link href={'/dashboard/cryptonews'}>News</Link>
+              </h1>
+              
+              
+          
+              
               <div className="text-sm text-gray-500">
                 Last updated: {time}
               </div>

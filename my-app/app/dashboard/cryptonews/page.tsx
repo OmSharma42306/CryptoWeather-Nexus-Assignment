@@ -32,10 +32,17 @@ export default function CryptoNews() {
 
     return (
         <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+            
             <div className="max-w-4xl mx-auto">
+            <Link
+  href="/dashboard"
+  className="inline-block mb-4 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+>
+  ← Back to Dashboard
+</Link>
                 <h1 className="text-3xl font-bold text-gray-900 mb-8">Crypto News</h1>
                 
-                
+
                 <div className="space-y-6">
                     {newsData.map((news, index) => (
                         <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
@@ -66,6 +73,7 @@ export default function CryptoNews() {
                         </div>
                     ))}
                 </div>
+                
             </div>
         </div>
     );
