@@ -10,9 +10,9 @@ export default function CryptoWebsocket() {
 
   useEffect(() => {
     const ws = new WebSocket(`wss://wss.coincap.io/prices?assets=bitcoin,ethereu,monero,litecoin&apiKey=${COINCAP_API_KEY}`);
-    ws.onmessage = (msg) => {
-      const data = JSON.parse(msg.data);
-
+    ws.onmessage = async (msg) => {
+      const data = await JSON.parse(msg.data);
+      console.log("hey")
       Object.entries(data).forEach(([id, price]) => {
         const numericPrice = Number(price);
         const prev = prevPrices.current[id];
