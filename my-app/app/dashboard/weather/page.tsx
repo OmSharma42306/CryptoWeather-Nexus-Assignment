@@ -98,7 +98,7 @@
 
 "use client"
 import { useEffect, useState } from "react";
-import { fetchWeatherData } from "@/app/lib/api";
+import { fetchWeatherData } from "@/app/api/api";
 
 const cities: any = ["London", "New York", "Tokyo"];
 

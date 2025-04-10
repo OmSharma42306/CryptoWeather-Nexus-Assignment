@@ -43,7 +43,7 @@
 // }
 
 "use client"
-import { getCryptoRelatedHeadlines } from "@/app/lib/api"
+import { getCryptoRelatedHeadlines } from "@/app/api/api"
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

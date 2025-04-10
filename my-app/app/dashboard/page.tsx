@@ -73,7 +73,7 @@ import CryptoNews from "./cryptonews/page"
 import DisplayCoinCap from '@/CoinCap/DisplayCoinCap';
 import { useEffect, useState } from 'react';
 
-export default function x() {
+export default function Dashboard() {
   const [time,setTime] = useState("");
   useEffect(()=>{
     setTime(new Date().toLocaleString())

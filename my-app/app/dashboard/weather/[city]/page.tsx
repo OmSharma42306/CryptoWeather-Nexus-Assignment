@@ -72,7 +72,7 @@
     
     
 "use client"
-import { fetchWeatherData } from "@/app/lib/api";
+import { fetchWeatherData } from "@/app/api/api";
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react";
 

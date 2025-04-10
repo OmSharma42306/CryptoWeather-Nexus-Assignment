@@ -51,10 +51,11 @@
 
 
 "use client"
-import { fetchCryptoData } from "@/app/lib/api";
+import { fetchCryptoData } from "@/app/api/api";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react"
 import { ArrowLeft, TrendingUp, TrendingDown, DollarSign, Activity } from "lucide-react";
+import Link from "next/link";
 
 interface cryptoDataType {
     current_price: string;
@@ -74,13 +75,14 @@ export default function CryptoCurrency() {
         async function getCryptoData(cryptoname: string) {
             if (cryptoName) {
                 const { current_price, price_change_24h, market_cap, cryptoName } = await fetchCryptoData(cryptoname);
+                console.log("C",current_price)
                 setCryptoData([{ current_price, price_change_24h, market_cap, cryptoName }]);
                 setLoading(false);
             }
         }
         getCryptoData(cryptoName as string);
     }, [cryptoName]);
-
+    console.log(cryptoData)
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
@@ -92,13 +94,15 @@ export default function CryptoCurrency() {
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="mb-8">
-                <a 
+                <Link href="/dashboard/cryptocurrency" className="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors"/>
+
+                {/* <a 
                     href="/dashboard/cryptocurrency" 
                     className="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors"
                 >
                     <ArrowLeft className="w-5 h-5 mr-2" />
                     Back to Cryptocurrencies
-                </a>
+                </a> */}
             </div>
 
             {cryptoData.map((crypto) => {

@@ -103,7 +103,7 @@
 
 
 "use client"
-import { fetchCryptoData } from "@/app/lib/api";
+import { fetchCryptoData } from "@/app/api/api";
 import { useEffect, useState } from "react"
 
 const cryptos = ["bitcoin", "ethereum", "solana"];
