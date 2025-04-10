@@ -39,6 +39,9 @@ export async function fetchCryptoData(cryptoName:string){
 }
 
 
+
+
+
 export async function getCryptoRelatedHeadlines(){
     const url = `https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&q=crypto&language=en`;
     const responses = await axios.get(url);
